@@ -1,3 +1,5 @@
+// 69. Sqrt(x)
+
 function mySqrt (x){
     let i=0
     while((i*i<=x)){
