@@ -1,37 +1,34 @@
 // Longest Substring Without Repeating Characters
 
 
-// ----- Works but takes too long
+// ----- Attempt 1: Works but took too long
 
-function lengthOfLongestSubstring (s){
-    let seen = []
-    let longestSubstring = 0
-    for (let i=0; i<s.length; i++){
-        for(let j=i; j<s.length; j++){
-            if(seen.includes(s[j])){
-                if(seen.length>longestSubstring){
-                    longestSubstring = seen.length
-                }
-                seen=[]
-            }
-            else{
-                seen.push(s[j])
-                if(j==s.length-1){
-                    if(seen.length>longestSubstring){
-                        longestSubstring = seen.length
-                    }
-                    seen=[]
-                }
-            }
-        }
-    }
-    return longestSubstring
-}
+// function lengthOfLongestSubstring (s){
+//     let seen = []
+//     let longestSubstring = 0
+//     for (let i=0; i<s.length; i++){
+//         for(let j=i; j<s.length; j++){
+//             if(seen.includes(s[j])){
+//                 if(seen.length>longestSubstring){
+//                     longestSubstring = seen.length
+//                 }
+//                 seen=[]
+//             }
+//             else{
+//                 seen.push(s[j])
+//                 if(j==s.length-1){
+//                     if(seen.length>longestSubstring){
+//                         longestSubstring = seen.length
+//                     }
+//                     seen=[]
+//                 }
+//             }
+//         }
+//     }
+//     return longestSubstring
+// }
 
-
-
-// ----- Attempt 2 (Not solved)
-//
+// Attempt 2
 function lengthOfLongestSubstring(s) {
     let longestSubstring = 0
     let seen = []
