@@ -32,49 +32,22 @@ function lengthOfLongestSubstring (s){
 
 // ----- Attempt 2 (Not solved)
 //
-// function lengthOfLongestSubstring(s) {
-//     let longestSubstring = 0
-//     let startarr = []
-//     let endarr = []
-//     let start = 0
-//     let end = s.length - 1
-//     for (start; start<s.length; start++){
-//         if (startarr.includes(s[start])){
-//             break
-//         }
-//         startarr.push(s[start])
-//         // console.log(startarr)
-//     }
-//     for (end; end>=0; end--){
-//         if (endarr.includes(s[end])){
-//             break
-//         }
-//         endarr.push(s[end])
-//         // console.log(endarr)
-//     }
-    
-//     longestSubstring = Math.max(start, s.length-1-end)
-//     console.log(start, end, longestSubstring)
-    
-//     let seen = []
-//     let found = ""
-//     let cutoff = -1
+function lengthOfLongestSubstring(s) {
+    let longestSubstring = 0
+    let seen = []
+    let found = ""
+    let cutoff = -1
 
-//     for (let i = 0; i < s.length; i++) {
-//         found = seen.lastIndexOf(s[i])
-//         // console.log("found:",found)
-//         if (found >= 0 && found > cutoff) {
-//             cutoff = found
-//             if (i - found > longestSubstring) {
-//                 longestSubstring = i - found
-//                 // console.log("longestSS:", longestSubstring)
-//             }
-//         }
-//         seen.push(s[i])
-//         // console.log("seen:",seen)
-//     }
-//     return longestSubstring
-// }
+    for (let i = 0; i < s.length; i++) {
+        found = seen.lastIndexOf(s[i])
+        if (found >= 0 && found > cutoff) {
+            cutoff = found
+        }
+        longestSubstring = Math.max(longestSubstring, i-cutoff)
+        seen.push(s[i])
+    }
+    return longestSubstring
+}
 
 // let s1 = "abcabcbb"
 // console.log(lengthOfLongestSubstring(s1))
@@ -82,5 +55,9 @@ function lengthOfLongestSubstring (s){
 // console.log(lengthOfLongestSubstring(s2))
 // let s3 = "pwwkew"
 // console.log(lengthOfLongestSubstring(s3))
+
+
+
+
 let s4 = "ohomm"
 console.log(lengthOfLongestSubstring(s4))
